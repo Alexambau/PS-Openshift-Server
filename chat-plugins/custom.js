@@ -6,7 +6,7 @@ exports.commands = {
 		if (!this.can('pmall')) return false;
 		if (!target) return this.parse('/help pmall');
 
-		var pmName = ' InFo.PM [No Responder]';
+		var pmName = ' Firetower Info [No Responder]';
 
 		for (var i in Users.users) {
 			var message = '|pm|' + pmName + '|' + Users.users[i].getIdentity() + '|' + target;
@@ -21,7 +21,7 @@ exports.commands = {
 		if (!this.can('forcewin')) return false;
 		if (!target) return this.parse('/help pmallstaff');
 
-		var pmName = ' InFo.Staff [No Responder]';
+		var pmName = ' Firetower Staff [No Responder]';
 
 		for (var i in Users.users) {
 			if (Users.users[i].isStaff) {
@@ -29,7 +29,7 @@ exports.commands = {
 			}
 		}
 	},
-	pmallstaffhelp: ["/pmallstaff [message] - Envia un mensaje a Todo el miembro del Staff ."],
+	pmallstaffhelp: ["/pmallstaff [mensaje] - Envia un mensaje a Todo el miembro del Staff ."],
 	
 	postimage: 'image',
 	image: function (target, room, user) {
@@ -46,7 +46,7 @@ exports.commands = {
 	},
 	
 	cssedit: function (target, room, user, connection) {
-		if (!user.hasConsoleAccess(connection)) {return this.sendReply("/cssedit - Access denied.");}
+		if (!user.hasConsoleAccess(connection)) {return this.sendReply("/cssedit - Acceso Denegado.");}
 		var fsscript = require('fs');
 		if (!target) {
 			if (!fsscript.existsSync(DATA_DIR + "custom.css")) return this.sendReply("custom.css no existe.");
@@ -57,7 +57,7 @@ exports.commands = {
 	},
 	
 	destroymodlog: function (target, room, user, connection) {
-		if (!user.hasConsoleAccess(connection)) {return this.sendReply("/destroymodlog - Access denied.");}
+		if (!user.hasConsoleAccess(connection)) {return this.sendReply("/destroymodlog - Acceso Denegado.");}
 		var fsscript = require('fs');
 		var logPath = LOGS_DIR + 'modlog/';
 		if (CommandParser.modlog && CommandParser.modlog[room.id])  {
