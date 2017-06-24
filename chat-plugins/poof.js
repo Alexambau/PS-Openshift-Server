@@ -2,7 +2,7 @@ const messages = [
     "ha utilizado Explosión!",
     "fue tragado por la tierra!",
     "ha dejado el edificio.",
-    "se perdió en el bosque!",
+    "fue comido por Ekans!",
     "fue dejado por su amante!",
     "fue absorbido por un remolino!",
     "se asustó y salió del servidor!",
@@ -23,7 +23,7 @@ exports.commands = {
 	d: 'poof',
 	cpoof: 'poof',
 	poof: function (target, room, user) {
-		if (Config.poofOff) return this.sendReply("Poof is currently disabled.");
+		if (Config.poofOff) return this.sendReply("Poof esta actualmente desactivado");
 		if (target && !this.can('broadcast')) return false;
 		if (room.id !== 'lobby') return false;
 		var message = target || messages[Math.floor(Math.random() * messages.length)];
@@ -46,12 +46,12 @@ exports.commands = {
 	nopoof: function () {
 		if (!this.can('poofoff')) return false;
 		Config.poofOff = true;
-		return this.sendReply("Poof is now disabled.");
+		return this.sendReply("Poof esta desactivado.");
 	},
 
 	poofon: function () {
 		if (!this.can('poofoff')) return false;
 		Config.poofOff = false;
-		return this.sendReply("Poof is now enabled.");
+		return this.sendReply("Poof esta activado.");
 	}
 };
